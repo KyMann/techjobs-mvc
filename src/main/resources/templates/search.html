@@ -37,7 +37,23 @@
     <hr />
 
     <!-- TODO #2 - Loop over jobs map to display all job fields -->
-
+    <!-- for job in joblist
+            start table
+            for column in job
+                display column name // display column value #1 row each
+            end table-->
+    <div th:fragment="show-jobs">
+    <span th:each="job : ${joblist}">
+        <table class="job-listing">
+            <span th:each="jobinfopair : ${job}">
+                <tr>
+                    <th th:text="${jobinfopair.getKey()}"></th>
+                    <th th:text="${jobinfopair.getValue()}"></th>
+                </tr>
+            </span>
+        </table>
+    </span>
+    </div>
 </div>
 
 </body>
